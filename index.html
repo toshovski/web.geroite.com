@@ -1,54 +1,265 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        .container {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        }
-        h1 {
-            font-size: 3rem;
-            margin: 0;
-            animation: fadeIn 1s ease-in;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-top: 1rem;
-            opacity: 0.9;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <title>Geroite - Order & Production Management SaaS</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>🌍 Hello World!</h1>
-        <p>Willkommen auf meiner GitHub Pages Website</p>
-    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">📦</span>
+                <span class="logo-text">Geroite</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#benefits" class="nav-link">Benefits</a>
+                <a href="#contact" class="nav-link contact-btn">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Streamline Your Order & Production Management</h1>
+            <p class="hero-subtitle">The all-in-one SaaS platform built for manufacturing companies to manage orders, customers, products, and production schedules with ease.</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Powerful Features Built for Your Business</h2>
+            <p class="section-subtitle">Everything you need to manage your operations efficiently</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Order Management</h3>
+                    <p>Track and manage all your orders in one centralized location. Monitor order status, view detailed information, and manage fulfillment with ease.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Customer Management</h3>
+                    <p>Maintain a comprehensive customer database. View customer order history, contact information, and manage all customer relationships effortlessly.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Product Catalog</h3>
+                    <p>Organize and manage your product inventory. Track product details, pricing, and availability across multiple organizations.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏭</div>
+                    <h3>Production Schedule</h3>
+                    <p>Plan and monitor your production timeline. Optimize manufacturing workflows and track production progress with real-time visibility.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Advanced Search & Filtering</h3>
+                    <p>Quickly find what you need with powerful search capabilities. Filter orders by status, time period, and customer with lightning-fast results.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Connector Integration</h3>
+                    <p>Seamlessly integrate with external platforms like Billbee. Automate data synchronization and keep all systems in perfect harmony.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏢</div>
+                    <h3>Multi-Organization Support</h3>
+                    <p>Manage multiple organizations from a single platform. Switch between organizations effortlessly with complete data isolation and security.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌙</div>
+                    <h3>Dark & Light Mode</h3>
+                    <p>Work comfortably in any lighting condition. Toggle between professional light and dark themes to suit your preference.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Flexible Configuration</h3>
+                    <p>Customize the platform to match your business needs. Configure connectors, settings, and workflows tailored to your operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2>Why Choose Geroite?</h2>
+            <p class="section-subtitle">Transform your business operations with industry-leading solutions</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-number">1</div>
+                    <h3>Increased Efficiency</h3>
+                    <p>Reduce manual data entry and streamline workflows. Automate repetitive tasks and focus on what matters most to your business.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">2</div>
+                    <h3>Real-Time Visibility</h3>
+                    <p>Get instant access to your order status, production progress, and customer information. Make informed decisions backed by real-time data.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">3</div>
+                    <h3>Scalable Platform</h3>
+                    <p>Start small and grow with confidence. Our platform scales seamlessly with your business as you expand operations and add new organizations.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">4</div>
+                    <h3>Enterprise Security</h3>
+                    <p>Your data is protected with enterprise-grade security. Multi-organization architecture ensures complete data isolation and compliance.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">5</div>
+                    <h3>Cost Savings</h3>
+                    <p>Eliminate expensive legacy systems. Lower operational costs through automation, reduced errors, and improved resource allocation.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">6</div>
+                    <h3>Expert Support</h3>
+                    <p>Get help when you need it. Our dedicated support team is ready to assist with implementation, training, and ongoing optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases">
+        <div class="container">
+            <h2>Perfect For</h2>
+            <p class="section-subtitle">Geroite serves businesses of all sizes in manufacturing and e-commerce</p>
+            
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <h3>Manufacturing Companies</h3>
+                    <p>Manage complex production schedules, track materials, and coordinate between sales and production teams.</p>
+                </div>
+
+                <div class="use-case-card">
+                    <h3>E-Commerce Businesses</h3>
+                    <p>Handle high order volumes with efficient order management, customer tracking, and fulfillment coordination.</p>
+                </div>
+
+                <div class="use-case-card">
+                    <h3>Multi-Tenant Enterprises</h3>
+                    <p>Operate multiple business units with isolated data. Centralized management with complete organization separation.</p>
+                </div>
+
+                <div class="use-case-card">
+                    <h3>Growing Startups</h3>
+                    <p>Scale your operations without expensive infrastructure. Start small and grow your team and operations seamlessly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Join companies that are already streamlining their operations with Geroite</p>
+            <a href="#contact" class="cta-button cta-button-large">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="section-subtitle">Have questions? We'd love to hear from you.</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p class="contact-email">
+                        <strong>Email:</strong> 
+                        <a href="mailto:contact@geroite.com">contact@geroite.com</a>
+                    </p>
+                    <p class="contact-description">
+                        Reach out to our team to discuss your business needs, schedule a demo, or ask any questions about Geroite.
+                    </p>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Geroite</h4>
+                    <p>Professional order and production management for modern businesses.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="mailto:contact@geroite.com">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Geroite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
