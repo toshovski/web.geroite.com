@@ -3,1048 +3,443 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geroite - Order & Production Management SaaS</title>
-    <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    /* Professional color palette */
-    --bg-gradient-start: #f5f7fa;
-    --bg-gradient-end: #e8eef5;
-    --text-primary: #1a202c;
-    --text-secondary: #4a5568;
-    --text-muted: #718096;
-    --bg-white: #ffffff;
-    --bg-light: #f7fafc;
-    --bg-hover: #edf2f7;
-    --border-color: #e2e8f0;
-    --border-light: #f0f4f8;
-    --shadow: rgba(0, 0, 0, 0.05);
-    --shadow-md: rgba(0, 0, 0, 0.08);
-    --shadow-lg: rgba(0, 0, 0, 0.12);
-    --accent-primary: #2563eb;
-    --accent-secondary: #1e40af;
-    --accent-hover: #1d4ed8;
-    --accent-light: #dbeafe;
-    --success: #10b981;
-    --warning: #f59e0b;
-    --danger: #ef4444;
-}
-
-body.dark-mode {
-    --bg-gradient-start: #0f172a;
-    --bg-gradient-end: #1e293b;
-    --text-primary: #f1f5f9;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
-    --bg-white: #1e293b;
-    --bg-light: #0f172a;
-    --bg-hover: #334155;
-    --border-color: #334155;
-    --border-light: #1e293b;
-    --shadow: rgba(0, 0, 0, 0.3);
-    --shadow-md: rgba(0, 0, 0, 0.25);
-    --shadow-lg: rgba(0, 0, 0, 0.35);
-    --accent-primary: #3b82f6;
-    --accent-secondary: #2563eb;
-    --accent-hover: #60a5fa;
-    --accent-light: #1e3a8a;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
-    min-height: 100vh;
-    color: var(--text-primary);
-    transition: background 0.3s ease, color 0.3s ease;
-    line-height: 1.6;
-    letter-spacing: -0.01em;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Navigation */
-.navbar {
-    background: var(--bg-white);
-    box-shadow: 0 1px 3px var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 24px;
-    color: var(--accent-primary);
-}
-
-.logo-icon {
-    font-size: 28px;
-}
-
-.logo-text {
-    color: var(--text-primary);
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-}
-
-.nav-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
-    transition: color 0.2s;
-}
-
-.nav-link:hover {
-    color: var(--accent-primary);
-}
-
-.contact-btn {
-    padding: 10px 20px;
-    background: var(--accent-primary);
-    color: white;
-    border-radius: 6px;
-    transition: background 0.2s;
-}
-
-.contact-btn:hover {
-    background: var(--accent-hover);
-}
-
-/* Hero Section */
-.hero {
-    padding: 120px 20px 80px;
-    text-align: center;
-}
-
-.hero-content h1 {
-    font-size: 56px;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 24px;
-    line-height: 1.2;
-}
-
-.hero-subtitle {
-    font-size: 20px;
-    color: var(--text-secondary);
-    margin-bottom: 40px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 16px 40px;
-    background: var(--accent-primary);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 16px;
-    transition: all 0.2s;
-    box-shadow: 0 4px 6px var(--shadow-md);
-}
-
-.cta-button:hover {
-    background: var(--accent-hover);
-    box-shadow: 0 8px 12px var(--shadow-lg);
-    transform: translateY(-2px);
-}
-
-.cta-button-large {
-    padding: 18px 48px;
-    font-size: 18px;
-}
-
-/* Features Section */
-.features {
-    padding: 80px 20px;
-    background: var(--bg-light);
-}
-
-.features h2,
-.benefits h2,
-.use-cases h2,
-.cta-section h2,
-.contact-section h2 {
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 16px;
-    text-align: center;
-}
-
-.section-subtitle {
-    font-size: 18px;
-    color: var(--text-secondary);
-    text-align: center;
-    margin-bottom: 60px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 32px;
-    margin-bottom: 0;
-}
-
-.feature-card {
-    background: var(--bg-white);
-    padding: 32px 24px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 1px 3px var(--shadow);
-    transition: all 0.3s;
-}
-
-.feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 12px var(--shadow-lg);
-    border-color: var(--accent-light);
-}
-
-.feature-icon {
-    font-size: 48px;
-    margin-bottom: 16px;
-}
-
-.feature-card h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 12px;
-}
-
-.feature-card p {
-    color: var(--text-secondary);
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-/* Benefits Section */
-.benefits {
-    padding: 80px 20px;
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 32px;
-}
-
-.benefit-item {
-    background: var(--bg-white);
-    padding: 32px 24px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 1px 3px var(--shadow);
-    transition: all 0.3s;
-    display: flex;
-    flex-direction: column;
-}
-
-.benefit-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 12px var(--shadow-lg);
-    border-color: var(--accent-light);
-}
-
-.benefit-number {
-    width: 48px;
-    height: 48px;
-    background: var(--accent-primary);
-    color: white;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 24px;
-    margin-bottom: 16px;
-}
-
-.benefit-item h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 12px;
-}
-
-.benefit-item p {
-    color: var(--text-secondary);
-    font-size: 15px;
-    line-height: 1.6;
-    flex-grow: 1;
-}
-
-/* Use Cases Section */
-.use-cases {
-    padding: 80px 20px;
-    background: var(--bg-light);
-}
-
-.use-cases-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-}
-
-.use-case-card {
-    background: var(--bg-white);
-    padding: 28px 24px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 1px 3px var(--shadow);
-    transition: all 0.3s;
-}
-
-.use-case-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 12px var(--shadow-lg);
-    border-color: var(--accent-light);
-}
-
-.use-case-card h3 {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 12px;
-}
-
-.use-case-card p {
-    color: var(--text-secondary);
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* CTA Section */
-.cta-section {
-    padding: 80px 20px;
-    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-    text-align: center;
-}
-
-.cta-section h2 {
-    color: white;
-    margin-bottom: 16px;
-}
-
-.cta-section p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 18px;
-    margin-bottom: 40px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.cta-section .cta-button {
-    background: white;
-    color: var(--accent-primary);
-    font-weight: 700;
-}
-
-.cta-section .cta-button:hover {
-    background: rgba(255, 255, 255, 0.95);
-}
-
-/* Contact Section */
-.contact-section {
-    padding: 80px 20px;
-}
-
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    margin-top: 60px;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.contact-info h3,
-.contact-form h3 {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 24px;
-}
-
-.contact-email {
-    font-size: 16px;
-    color: var(--text-secondary);
-    margin-bottom: 16px;
-}
-
-.contact-email a {
-    color: var(--accent-primary);
-    text-decoration: none;
-    font-weight: 600;
-    word-break: break-all;
-}
-
-.contact-email a:hover {
-    color: var(--accent-hover);
-}
-
-.contact-description {
-    color: var(--text-secondary);
-    font-size: 15px;
-    line-height: 1.8;
-}
-
-/* Contact Form */
-.contact-form {
-    background: var(--bg-light);
-    padding: 32px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-}
-
-.form-group {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group:last-child {
-    margin-bottom: 0;
-}
-
-.form-group label {
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 8px;
-    font-size: 14px;
-}
-
-.form-group input,
-.form-group textarea {
-    padding: 12px 16px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 14px;
-    color: var(--text-primary);
-    background: var(--bg-white);
-    transition: all 0.2s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px var(--accent-light);
-}
-
-.form-group textarea {
-    resize: vertical;
-}
-
-.submit-btn {
-    padding: 12px 32px;
-    background: var(--accent-primary);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 16px;
-}
-
-.submit-btn:hover {
-    background: var(--accent-hover);
-    box-shadow: 0 4px 6px var(--shadow-md);
-}
-
-.submit-btn:active {
-    transform: scale(0.98);
-}
-
-/* Footer */
-.footer {
-    background: var(--bg-white);
-    border-top: 1px solid var(--border-color);
-    padding: 60px 20px 20px;
-    margin-top: 60px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
-.footer-section h4 {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 16px;
-}
-
-.footer-section p {
-    color: var(--text-secondary);
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 8px;
-}
-
-.footer-section ul li a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.2s;
-}
-
-.footer-section ul li a:hover {
-    color: var(--accent-primary);
-}
-
-.footer-bottom {
-    border-top: 1px solid var(--border-color);
-    padding-top: 20px;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 14px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        gap: 16px;
-    }
-
-    .nav-link {
-        font-size: 14px;
-    }
-
-    .hero-content h1 {
-        font-size: 36px;
-    }
-
-    .hero-subtitle {
-        font-size: 16px;
-    }
-
-    .features h2,
-    .benefits h2,
-    .use-cases h2,
-    .cta-section h2,
-    .contact-section h2 {
-        font-size: 32px;
-    }
-
-    .features-grid,
-    .benefits-grid,
-    .use-cases-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .hero {
-        padding: 80px 20px 60px;
-    }
-
-    .features,
-    .benefits,
-    .use-cases,
-    .cta-section,
-    .contact-section {
-        padding: 60px 20px;
-    }
-}
-
-@media (max-width: 640px) {
-    .nav-links {
-        gap: 8px;
-    }
-
-    .contact-btn {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-
-    .hero-content h1 {
-        font-size: 28px;
-    }
-
-    .hero-subtitle {
-        font-size: 14px;
-        margin-bottom: 24px;
-    }
-
-    .cta-button {
-        padding: 12px 24px;
-        font-size: 14px;
-    }
-
-    .feature-card,
-    .benefit-item,
-    .use-case-card {
-        padding: 24px 16px;
-    }
-
-    .features h2,
-    .benefits h2,
-    .use-cases h2,
-    .cta-section h2,
-    .contact-section h2 {
-        font-size: 24px;
-    }
-
-    .section-subtitle {
-        font-size: 16px;
-        margin-bottom: 40px;
-    }
-
-    .contact-form {
-        padding: 24px;
-    }
-}
-    </style>
+    <title>Geroite - Multi-Channel Order Fulfillment & Production Management</title>
+    <meta name="description" content="Streamline your e-commerce operations with Geroite. Multi-channel order management, production scheduling, and inventory tracking for personalized product businesses.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <span class="logo-icon">📦</span>
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">
+                <img src="../static/logo.svg" alt="Geroite" class="logo-icon">
                 <span class="logo-text">Geroite</span>
-            </div>
+            </a>
             <div class="nav-links">
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#benefits" class="nav-link">Benefits</a>
-                <a href="#contact" class="nav-link contact-btn">Contact Us</a>
+                <a href="#features">Features</a>
+                <a href="#channels">Channels</a>
+                <a href="#about">About</a>
+                <a href="contact.html">Contact</a>
             </div>
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-primary">Join Our Beta Program</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#features">Features</a>
+            <a href="#channels">Channels</a>
+            <a href="#about">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="btn btn-primary">Join Our Beta Program</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Streamline Your Order & Production Management</h1>
-            <p class="hero-subtitle">The all-in-one SaaS platform built for manufacturing companies to manage orders, customers, products, and production schedules with ease.</p>
-            <a href="#contact" class="cta-button">Get Started Today</a>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Streamline Your <span class="highlight">Multi-Channel</span> E-Commerce Operations</h1>
+                <p class="hero-subtitle">
+                    The all-in-one platform for managing orders, production, and fulfillment across Etsy, Amazon, eBay, and more. 
+                    Built for businesses selling personalized and custom products.
+                </p>
+                <div class="hero-cta">
+                    <a href="#features" class="btn btn-primary btn-lg">Explore Features</a>
+                    <a href="contact.html" class="btn btn-outline btn-lg">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="dashboard-preview">
+                    <div class="preview-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="preview-content">
+                        <div class="preview-sidebar">
+                            <div class="preview-nav-item active"></div>
+                            <div class="preview-nav-item"></div>
+                            <div class="preview-nav-item"></div>
+                            <div class="preview-nav-item"></div>
+                        </div>
+                        <div class="preview-main">
+                            <div class="preview-card"></div>
+                            <div class="preview-card"></div>
+                            <div class="preview-card"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Channel Logos -->
+    <section class="channels-strip">
+        <div class="container">
+            <p>Connect and sync with your favorite marketplaces</p>
+            <div class="channel-logos">
+                <div class="channel-logo">
+                    <img class="marketplace-icon" src="icons/etsy.svg" alt="Etsy" style="fill: #F56400;">
+                    <span>Etsy</span>
+                </div>
+                <div class="channel-logo">
+                    <img class="marketplace-icon" src="icons/amazon.svg" alt="Amazon" style="fill: #FF9900;">
+                    <span>Amazon</span>
+                </div>
+                <div class="channel-logo">
+                    <img class="marketplace-icon" src="icons/ebay.svg" alt="eBay" style="fill: #E53238;">
+                    <span>eBay</span>
+                </div>
+                <div class="channel-logo">
+                    <img class="marketplace-icon" src="icons/shopify.svg" alt="Shopify" style="fill: #96BF48;">
+                    <span>Shopify</span>
+                </div>
+                <div class="channel-logo">
+                    <img class="marketplace-icon" src="icons/woocommerce.svg" alt="WooCommerce" style="fill: #9B5C8F;">
+                    <span>WooCommerce</span>
+                </div>
+                <div class="channel-logo">
+                    <img class="marketplace-icon" src="icons/billbee.svg" alt="Billbee" style="fill: #FFB800;">
+                    <span>Billbee</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features">
+    <section class="features" id="features">
         <div class="container">
-            <h2>Powerful Features Built for Your Business</h2>
-            <p class="section-subtitle">Everything you need to manage your operations efficiently</p>
+            <div class="section-header">
+                <h2>Everything You Need to Run Your Business</h2>
+                <p>Powerful features designed for e-commerce sellers of personalized products</p>
+            </div>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">📦</div>
-                    <h3>Order Management</h3>
-                    <p>Track and manage all your orders in one centralized location. Monitor order status, view detailed information, and manage fulfillment with ease.</p>
+                    <h3>Unified Order Management</h3>
+                    <p>View and manage all your orders from every sales channel in one centralized dashboard. Filter, search, and process orders efficiently.</p>
+                    <ul class="feature-list">
+                        <li>Real-time order sync</li>
+                        <li>Bulk order processing</li>
+                        <li>Order status tracking</li>
+                        <li>Custom order tags</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏭</div>
+                    <h3>Production Scheduling</h3>
+                    <p>Plan and track your production workflow. See what needs to be made, what's in progress, and what's ready to ship.</p>
+                    <ul class="feature-list">
+                        <li>Visual production queue</li>
+                        <li>Material requirements</li>
+                        <li>Batch processing</li>
+                        <li>Due date prioritization</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Inventory Tracking</h3>
+                    <p>Keep track of your stock levels, materials, and supplies. Get alerts when items are running low.</p>
+                    <ul class="feature-list">
+                        <li>Real-time stock levels</li>
+                        <li>Low stock alerts</li>
+                        <li>Stock adjustments</li>
+                        <li>Inventory history</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Shipping Integration</h3>
+                    <p>Create shipping labels directly from orders. Support for DHL, Deutsche Post, and more carriers.</p>
+                    <ul class="feature-list">
+                        <li>One-click label creation</li>
+                        <li>Tracking sync to channels</li>
+                        <li>Batch shipping</li>
+                        <li>International shipping</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔌</div>
+                    <h3>Multi-Channel Sync</h3>
+                    <p>Connect to Etsy, Amazon, eBay, Shopify and more. Sync orders, update tracking, and manage inventory across all platforms.</p>
+                    <ul class="feature-list">
+                        <li>Automatic order import</li>
+                        <li>Tracking updates</li>
+                        <li>Inventory sync</li>
+                        <li>OAuth secure connection</li>
+                    </ul>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">👥</div>
                     <h3>Customer Management</h3>
-                    <p>Maintain a comprehensive customer database. View customer order history, contact information, and manage all customer relationships effortlessly.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Product Catalog</h3>
-                    <p>Organize and manage your product inventory. Track product details, pricing, and availability across multiple organizations.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🏭</div>
-                    <h3>Production Schedule</h3>
-                    <p>Plan and monitor your production timeline. Optimize manufacturing workflows and track production progress with real-time visibility.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
-                    <h3>Advanced Search & Filtering</h3>
-                    <p>Quickly find what you need with powerful search capabilities. Filter orders by status, time period, and customer with lightning-fast results.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🔗</div>
-                    <h3>Connector Integration</h3>
-                    <p>Seamlessly integrate with external platforms like Billbee. Automate data synchronization and keep all systems in perfect harmony.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🏢</div>
-                    <h3>Multi-Organization Support</h3>
-                    <p>Manage multiple organizations from a single platform. Switch between organizations effortlessly with complete data isolation and security.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🌙</div>
-                    <h3>Dark & Light Mode</h3>
-                    <p>Work comfortably in any lighting condition. Toggle between professional light and dark themes to suit your preference.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">⚙️</div>
-                    <h3>Flexible Configuration</h3>
-                    <p>Customize the platform to match your business needs. Configure connectors, settings, and workflows tailored to your operations.</p>
+                    <p>Build relationships with your customers. Track order history, notes, and communication all in one place.</p>
+                    <ul class="feature-list">
+                        <li>Customer profiles</li>
+                        <li>Order history</li>
+                        <li>Notes & tags</li>
+                        <li>Repeat customer tracking</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section id="benefits" class="benefits">
+    <!-- Personalization Section -->
+    <section class="personalization">
         <div class="container">
-            <h2>Why Choose Geroite?</h2>
-            <p class="section-subtitle">Transform your business operations with industry-leading solutions</p>
-            
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-number">1</div>
-                    <h3>Increased Efficiency</h3>
-                    <p>Reduce manual data entry and streamline workflows. Automate repetitive tasks and focus on what matters most to your business.</p>
+            <div class="personalization-content">
+                <div class="personalization-text">
+                    <h2>Built for Personalized Products</h2>
+                    <p>Unlike generic order management systems, Geroite understands the unique needs of businesses selling customized and personalized items.</p>
+                    <ul class="check-list">
+                        <li>✓ Extract personalization details from orders automatically</li>
+                        <li>✓ Display custom text, names, and options clearly</li>
+                        <li>✓ Group similar personalizations for batch production</li>
+                        <li>✓ Track materials needed for each customization</li>
+                        <li>✓ Generate production sheets with all details</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Learn More</a>
                 </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-number">2</div>
-                    <h3>Real-Time Visibility</h3>
-                    <p>Get instant access to your order status, production progress, and customer information. Make informed decisions backed by real-time data.</p>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-number">3</div>
-                    <h3>Scalable Platform</h3>
-                    <p>Start small and grow with confidence. Our platform scales seamlessly with your business as you expand operations and add new organizations.</p>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-number">4</div>
-                    <h3>Enterprise Security</h3>
-                    <p>Your data is protected with enterprise-grade security. Multi-organization architecture ensures complete data isolation and compliance.</p>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-number">5</div>
-                    <h3>Cost Savings</h3>
-                    <p>Eliminate expensive legacy systems. Lower operational costs through automation, reduced errors, and improved resource allocation.</p>
-                </div>
-
-                <div class="benefit-item">
-                    <div class="benefit-number">6</div>
-                    <h3>Expert Support</h3>
-                    <p>Get help when you need it. Our dedicated support team is ready to assist with implementation, training, and ongoing optimization.</p>
+                <div class="personalization-visual">
+                    <div class="order-preview-card">
+                        <div class="order-header">
+                            <span class="order-number">#ETY-12345</span>
+                            <span class="order-status status-new">New</span>
+                        </div>
+                        <div class="order-product">
+                            <div class="product-image">🎁</div>
+                            <div class="product-details">
+                                <h4>Personalized Name Necklace</h4>
+                                <div class="personalization-badge">
+                                    <span class="badge-label">Name:</span>
+                                    <span class="badge-value">Emma</span>
+                                </div>
+                                <div class="personalization-badge">
+                                    <span class="badge-label">Font:</span>
+                                    <span class="badge-value">Script</span>
+                                </div>
+                                <div class="personalization-badge">
+                                    <span class="badge-label">Material:</span>
+                                    <span class="badge-value">Gold</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Use Cases Section -->
-    <section class="use-cases">
+    <!-- Channels Section -->
+    <section class="channels-section" id="channels">
         <div class="container">
-            <h2>Perfect For</h2>
-            <p class="section-subtitle">Geroite serves businesses of all sizes in manufacturing and e-commerce</p>
+            <div class="section-header">
+                <h2>Connect Your Sales Channels</h2>
+                <p>Integrate with the platforms where you sell</p>
+            </div>
             
-            <div class="use-cases-grid">
-                <div class="use-case-card">
-                    <h3>Manufacturing Companies</h3>
-                    <p>Manage complex production schedules, track materials, and coordinate between sales and production teams.</p>
+            <div class="channels-grid">
+                <div class="channel-card available">
+                    <div class="channel-icon etsy">
+                        <img src="icons/etsy.svg" alt="Etsy">
+                    </div>
+                    <h3>Etsy</h3>
+                    <p>Full integration with order import, tracking sync, and inventory management</p>
+                    <span class="channel-status available">Available</span>
                 </div>
-
-                <div class="use-case-card">
-                    <h3>E-Commerce Businesses</h3>
-                    <p>Handle high order volumes with efficient order management, customer tracking, and fulfillment coordination.</p>
+                
+                <div class="channel-card available">
+                    <div class="channel-icon billbee">
+                        <img src="icons/billbee.svg" alt="Billbee">
+                    </div>
+                    <h3>Billbee</h3>
+                    <p>Sync orders, products, and customers from your Billbee account</p>
+                    <span class="channel-status available">Available</span>
                 </div>
-
-                <div class="use-case-card">
-                    <h3>Multi-Tenant Enterprises</h3>
-                    <p>Operate multiple business units with isolated data. Centralized management with complete organization separation.</p>
+                
+                <div class="channel-card coming-soon">
+                    <div class="channel-icon amazon">
+                        <img src="icons/amazon.svg" alt="Amazon">
+                    </div>
+                    <h3>Amazon</h3>
+                    <p>Seller Central integration for order management and fulfillment</p>
+                    <span class="channel-status coming-soon">Coming Soon</span>
                 </div>
+                
+                <div class="channel-card coming-soon">
+                    <div class="channel-icon ebay">
+                        <img src="icons/ebay.svg" alt="eBay">
+                    </div>
+                    <h3>eBay</h3>
+                    <p>Connect your eBay store for unified order management</p>
+                    <span class="channel-status coming-soon">Coming Soon</span>
+                </div>
+                
+                <div class="channel-card coming-soon">
+                    <div class="channel-icon shopify">
+                        <img src="icons/shopify.svg" alt="Shopify">
+                    </div>
+                    <h3>Shopify</h3>
+                    <p>Full Shopify integration with webhooks and inventory sync</p>
+                    <span class="channel-status coming-soon">Coming Soon</span>
+                </div>
+                
+                <div class="channel-card coming-soon">
+                    <div class="channel-icon woocommerce">
+                        <img src="icons/woocommerce.svg" alt="WooCommerce">
+                    </div>
+                    <h3>WooCommerce</h3>
+                    <p>Connect your self-hosted WooCommerce store</p>
+                    <span class="channel-status coming-soon">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="use-case-card">
-                    <h3>Growing Startups</h3>
-                    <p>Scale your operations without expensive infrastructure. Start small and grow your team and operations seamlessly.</p>
+    <!-- About Section -->
+    <section class="about-story" id="about">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content">
+                    <h2>Built by Makers, for Makers</h2>
+                    <p class="lead">
+                        Geroite was born out of frustration — and a simple question: <em>"Why isn't there software that actually understands how we work?"</em>
+                    </p>
+                    <p>
+                        We run a small manufacturing company specializing in customized products. Like many makers and artisans, we started selling on platforms like Etsy and quickly expanded to multiple channels. As orders grew, so did the chaos.
+                    </p>
+                    <p>
+                        We tried the popular e-commerce solutions. They all promised to streamline our operations. But we quickly discovered a painful truth: <strong>none of them were built for businesses like ours.</strong>
+                    </p>
+                    <p>
+                        These platforms excel at managing standard products with fixed SKUs and simple fulfillment. But when every order is unique — with custom engravings, personalized text, specific sizes, or made-to-order configurations — they fall short. Customization attributes get buried. Production workflows don't exist. And you end up building workarounds on top of workarounds.
+                    </p>
+                    <p>
+                        <strong>So we built Geroite</strong> — a platform designed from the ground up for businesses that create personalized, customized, and made-to-order products. We use it ourselves every day, and every feature solves a real problem we've faced.
+                    </p>
+                </div>
+                <div class="story-image">
+                    <div class="story-visual">
+                        <div class="visual-icon">🎯</div>
+                        <span>Focused on What Matters</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="about-values">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Drives Us</h2>
+                <p>The principles behind everything we build</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>We Use What We Build</h3>
+                    <p>Geroite powers our own manufacturing business. Every feature solves a real problem we've faced ourselves.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🎨</div>
+                    <h3>Makers Deserve Better Tools</h3>
+                    <p>Small businesses and artisans shouldn't have to compromise with software designed for big-box retailers.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>Simplicity is Power</h3>
+                    <p>Complex problems don't require complicated solutions. We focus on what matters and eliminate the noise.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta">
         <div class="container">
-            <h2>Ready to Transform Your Business?</h2>
-            <p>Join companies that are already streamlining their operations with Geroite</p>
-            <a href="#contact" class="cta-button cta-button-large">Get Started Now</a>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <p class="section-subtitle">Have questions? We'd love to hear from you.</p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p class="contact-email">
-                        <strong>Email:</strong> 
-                        <a href="mailto:contact@geroite.com">contact@geroite.com</a>
-                    </p>
-                    <p class="contact-description">
-                        Reach out to our team to discuss your business needs, schedule a demo, or ask any questions about Geroite.
-                    </p>
-                </div>
-
-                <div class="contact-form">
-                    <h3>Send us a Message</h3>
-                    <form onsubmit="handleSubmit(event)">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="company">Company</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
+            <h2>Join Us on This Journey</h2>
+            <p>We're building Geroite with and for the maker community. Your feedback shapes our roadmap.</p>
+            <a href="contact.html" class="btn btn-primary btn-lg">Join Our Beta Program</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Geroite</h4>
-                    <p>Professional order and production management for modern businesses.</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">📦</span>
+                        <span class="logo-text">Geroite</span>
+                    </a>
+                    <p>Multi-channel order fulfillment and production management for e-commerce businesses.</p>
                 </div>
-
-                <div class="footer-section">
+                
+                <div class="footer-links">
                     <h4>Product</h4>
                     <ul>
                         <li><a href="#features">Features</a></li>
-                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#channels">Integrations</a></li>
+                        <li><a href="#">Roadmap</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-section">
+                
+                <div class="footer-links">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="mailto:contact@geroite.com">Support</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
                     </ul>
                 </div>
             </div>
-
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 Geroite. All rights reserved.</p>
+                <p>&copy; 2026 Geroite. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-// Smooth scrolling navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href !== '#' && document.querySelector(href)) {
-            e.preventDefault();
-            document.querySelector(href).scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             });
-        }
-    });
-});
-
-// Form submission handler
-function handleSubmit(event) {
-    event.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const company = document.getElementById('company').value;
-    const message = document.getElementById('message').value;
-    
-    // Create mailto link with form data
-    const subject = encodeURIComponent('Contact Request from ' + name);
-    const body = encodeURIComponent(
-        `Name: ${name}\n` +
-        `Email: ${email}\n` +
-        `Company: ${company}\n\n` +
-        `Message:\n${message}`
-    );
-    
-    // Open mailto link
-    window.location.href = `mailto:contact@geroite.com?subject=${subject}&body=${body}`;
-    
-    // Show success message
-    showNotification('Thank you for your message! Opening your email client...');
-    
-    // Reset form
-    event.target.reset();
-}
-
-// Notification system
-function showNotification(message) {
-    const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.textContent = message;
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: var(--accent-primary);
-        color: white;
-        padding: 16px 24px;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        animation: slideIn 0.3s ease-out;
-    `;
-    
-    // Add animation keyframes if not already present
-    if (!document.querySelector('style[data-notification]')) {
-        const style = document.createElement('style');
-        style.setAttribute('data-notification', 'true');
-        style.textContent = `
-            @keyframes slideIn {
-                from {
-                    transform: translateX(400px);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-            
-            @keyframes slideOut {
-                from {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-                to {
-                    transform: translateX(400px);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-    
-    document.body.appendChild(notification);
-    
-    // Remove notification after 5 seconds
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease-out';
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }, 5000);
-}
-
-// Dark mode toggle (if user's system prefers dark mode)
-function initializeDarkMode() {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    const updateTheme = (isDark) => {
-        if (isDark) {
-            document.body.classList.add('dark-mode');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.body.classList.remove('dark-mode');
-            localStorage.setItem('theme', 'light');
-        }
-    };
-    
-    // Check saved preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        updateTheme(savedTheme === 'dark');
-    } else {
-        updateTheme(prefersDark.matches);
-    }
-    
-    // Listen for system theme changes
-    prefersDark.addEventListener('change', (e) => {
-        updateTheme(e.matches);
-    });
-}
-
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-    initializeDarkMode();
-});
-
-// Analytics and tracking (optional)
-console.log('Geroite Business Website Loaded');
+        });
     </script>
 </body>
 </html>
